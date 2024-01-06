@@ -12,6 +12,6 @@ export class MessageComponent {
   private platform = inject(Platform);
   @Input() message?: Message;
   isIos() {
-    return this.platform.is('ios')
+    return this.platform.is('android')
   }
 }
