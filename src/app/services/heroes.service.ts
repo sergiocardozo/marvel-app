@@ -34,4 +34,21 @@ export class HeroesService {
   private generateHash(timestamp: string) : string {
     return Md5.hashStr( timestamp + this.privateKEY + this.publicKEY );
   }
+
+  getHeroesById(id: number) : Observable<any> {
+    const timestamp = new Date().getTime().toString();
+    const hash = this.generateHash(timestamp);
+    const url = `${this.apiURL}/${id}?apikey=${this.publicKEY}&ts=${timestamp}&hash=${hash}`;
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    })
+
+    const params = {
+      apikey: this.publicKEY,
+      ts: timestamp,
+      hash: hash
+    }
+    return this.http.get(url);
+  }
 }
