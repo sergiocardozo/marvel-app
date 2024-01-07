@@ -29,8 +29,8 @@ export class DetailHeroesPage implements OnInit {
       const results = data.data.results;
       this.heroe = results && results.length > 0 ? results[0] : null;
       console.log(this.heroe);
+      
       this.imgHeroe = this.heroe.thumbnail.path + '.jpg';
-      //console.log(this.imgHeroe);
     });
   }
 }

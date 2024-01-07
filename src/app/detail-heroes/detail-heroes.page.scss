@@ -1,0 +1,47 @@
+ion-toolbar {
+    --background: black;
+    --color: white;
+
+    ion-title {
+        font-weight: bold;
+    }
+}
+
+ion-content {
+    --background: $color-primary;
+    --background: radial-gradient(circle, rgba(246, 6, 6, 0.7707457983193278) 8%, rgba(238, 96, 0, 0.8995973389355743) 100%);
+}
+
+ion-card {
+    --background: $color-primary;
+    --background: radial-gradient(circle, rgba(246, 6, 6, 0.7707457983193278) 8%, rgba(238, 96, 0, 0.8995973389355743) 100%);
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px #000;
+    margin: 20px;
+
+    ion-img {
+        margin: 20px;
+        box-shadow: 3px 3px 3px #000;
+    }
+
+    ion-card-title {
+        font-weight: bold;
+        color: white;
+    }
+    ion-list {
+        background: rgb(246, 6, 6);
+        background: radial-gradient(circle, rgba(246, 6, 6, 0.7707457983193278) 8%, rgba(238, 96, 0, 0.8995973389355743) 100%);
+        box-shadow: 2px 2px 3px #000;
+        border-radius: 15px;
+    
+    }
+    ion-item {
+        --background: rgb(246, 6, 6);
+        --background: radial-gradient(circle, rgba(246, 6, 6, 0.7707457983193278) 8%, rgba(238, 96, 0, 0.8995973389355743) 100%);
+        color: white;
+        ion-chip{
+            color: white;
+        }
+    }
+
+}
