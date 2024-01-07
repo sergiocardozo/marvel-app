@@ -17,7 +17,7 @@ export class HeroesService {
   getHeroes() : Observable<any> {
     const timestamp = new Date().getTime().toString();
     const hash = this.generateHash(timestamp);
-    const url = `${this.apiURL}?limit=20&offset=5&apikey=${this.publicKEY}&ts=${timestamp}&hash=${hash}`;
+    const url = `${this.apiURL}?limit=20&offset=20&apikey=${this.publicKEY}&ts=${timestamp}&hash=${hash}`;
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
