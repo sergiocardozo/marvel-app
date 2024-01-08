@@ -1,7 +1,7 @@
 <ion-item *ngIf="characters" [routerLink]="'/heroe/' + characters.id">
 
   <ion-thumbnail slot="start">
-    <img src="{{ characters.thumbnail.path }}.jpg" alt="imagen heroe">
+    <img [src]="characters.thumbnail.path.replace('http://', 'https://') + '.jpg'" alt="imagen heroe">
   </ion-thumbnail>
   <ion-label>{{characters.name}}</ion-label>
   
