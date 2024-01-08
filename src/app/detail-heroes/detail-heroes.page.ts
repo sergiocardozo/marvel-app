@@ -36,9 +36,11 @@ export class DetailHeroesPage implements OnInit {
     return this.data.getHeroesById(parseInt(id, 10)).subscribe((data: any) => {
       const results = data.data.results;
       this.heroe = results && results.length > 0 ? results[0] : null;
-      console.log(this.heroe);
+      //console.log(this.heroe);
       
       this.imgHeroe = this.heroe.thumbnail.path + '.jpg';
+      this.imgHeroe = this.imgHeroe.replace(/^http:\/\//i, 'https://');
+      //console.log(this.imgHeroe);
     });
   }
 }
