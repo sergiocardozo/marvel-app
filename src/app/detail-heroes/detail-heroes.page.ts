@@ -1,6 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { HeroesService } from '../services/heroes.service';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { DeviceService } from '../services/device.service';
 
 @Component({
   selector: 'app-detail-heroes',
@@ -9,19 +11,25 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetailHeroesPage implements OnInit {
 
-  public heroe!: any;
+  heroe!: any;
   imgHeroe?: string;
   private activatedRoute = inject(ActivatedRoute);
   private data = inject(HeroesService)
   
-  constructor() {
+  constructor(private translate: TranslateService, private deviceService: DeviceService) {
     this.getHeroeById();
+    this.getLanguage();
    }
 
   ngOnInit() {   
 
   }
 
+  async getLanguage() {
+    this.translate.setDefaultLang('en');
+    this.translate.use(await this.deviceService.getDeviceLanguage());
+  }
+  
   getHeroeById() {
     const id = this.activatedRoute.snapshot.paramMap.get('id') as string;
 
