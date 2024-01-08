@@ -1,0 +1,21 @@
+ion-item {
+  --background: $color-primary;
+  --background: linear-gradient(87deg, rgba(245, 12, 6, 0.8491771708683473) 18%, rgba(238, 96, 0, 0.8995973389355743) 48%);
+  --padding-start: 0;
+  --inner-padding-end: 0;
+
+  &:active {
+    transform: scale(0.9);
+    transition: transform 0.3s;
+  }
+
+  ion-label {
+    color: white;
+    font-weight: bolder;
+  }
+
+  ion-thumbnail {
+    margin: 15px;
+    --border-radius: 15px;
+  }
+}

@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { RefresherCustomEvent } from '@ionic/angular';
-import { MessageComponent } from '../message/message.component';
 
-import { DataService, Message } from '../services/data.service';
+import { HeroesService } from '../services/heroes.service';
+import { TranslateService } from '@ngx-translate/core';
+import { DeviceService } from '../services/device.service';
 
 @Component({
   selector: 'app-home',
@@ -10,16 +10,25 @@ import { DataService, Message } from '../services/data.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  private data = inject(DataService);
-  constructor() {}
 
-  refresh(ev: any) {
-    setTimeout(() => {
-      (ev as RefresherCustomEvent).detail.complete();
-    }, 3000);
+  private heroeService = inject(HeroesService);
+
+  characters: Array<any> = [];
+
+  constructor(private translate: TranslateService, private deviceService: DeviceService) {
+    this.getHeroesMarvel();
+    this.getLanguage();
+
   }
 
-  getMessages(): Message[] {
-    return this.data.getMessages();
+  async getLanguage() {
+    this.translate.setDefaultLang('en');
+    this.translate.use(await this.deviceService.getDeviceLanguage());
+  }
+  getHeroesMarvel(): any {
+    return this.heroeService.getHeroes().subscribe((data: any) => {
+      this.characters = data.data.results;
+      //console.log(this.characters)
+    })
   }
 }

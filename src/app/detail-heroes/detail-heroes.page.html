@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{heroe?.name}}
+    </ion-title>
+    <ion-progress-bar type="indeterminate"></ion-progress-bar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="heroe">
+  <ion-card>
+
+
+    <ion-img [src]="imgHeroe"></ion-img>
+
+
+    <ion-card-header>
+      <ion-card-title>{{ "INFORMACION" | translate }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>{{ "COMICS" | translate }}</ion-label>
+          <!-- <ion-note>{{heroe?.comics.available}}</ion-note> -->
+          <ion-chip [outline]="true">{{heroe?.comics.available}}</ion-chip>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "SERIES" | translate }}</ion-label>
+          <ion-chip [outline]="true">{{heroe?.series.available}}</ion-chip>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "STORIES" | translate }}</ion-label>
+          <ion-chip [outline]="true">{{heroe?.stories.available}}</ion-chip>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
